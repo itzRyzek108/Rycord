@@ -32,27 +32,27 @@
 # 2. BetterDiscord
 *If you are using the classic BetterDiscord injector instead of Vencord:*
 
-Download and install BetterDiscord.
+*Download and install BetterDiscord.*
 
-Open Discord and navigate to User Settings.
+*Open Discord and navigate to User Settings.*
 
-Scroll down to the BetterDiscord section on the left sidebar and click Themes.
+*Scroll down to the BetterDiscord section on the left sidebar and click Themes.*
 
-Click Open Themes Folder.
+*Click Open Themes Folder.*
 
-Move the Rycord.theme.css file into this folder.
+*Move the Rycord.theme.css file into this folder.*
 
-Enable the theme inside the BetterDiscord Themes panel.
+*Enable the theme inside the BetterDiscord Themes panel.*
+# --------------------------
+# 3. Mobile (Vendetta / Aliucord / Vencord Mobile)
+*Note: Because mobile Discord clients handle CSS injection differently depending on your mod loader (such as Aliucord or Vendetta/Vencord mobile ports), ensure your mobile mod app supports custom CSS or remote themes.*
 
-3. Mobile (Vendetta / Aliucord / Vencord Mobile)
-Note: Because mobile Discord clients handle CSS injection differently depending on your mod loader (such as Aliucord or Vendetta/Vencord mobile ports), ensure your mobile mod app supports custom CSS or remote themes.
+*Open your mobile Discord client mod settings.*
 
-Open your mobile Discord client mod settings.
+*Navigate to the Themes or Plugins section (look for a Custom CSS or Theme Injector plugin).*
 
-Navigate to the Themes or Plugins section (look for a Custom CSS or Theme Injector plugin).
+*If your client supports loading local CSS files, copy Rycord.theme.css into your mobile client's designated theme directory.*
 
-If your client supports loading local CSS files, copy Rycord.theme.css into your mobile client's designated theme directory.
+*Alternatively, host the raw CSS file (e.g., via GitHub Gist) and paste the raw URL into your mobile mod's remote theme loader.*
 
-Alternatively, host the raw CSS file (e.g., via GitHub Gist) and paste the raw URL into your mobile mod's remote theme loader.
-
-Apply the theme and restart your mobile app.
+*Apply the theme and restart your mobile app.*
