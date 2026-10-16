@@ -1,11 +1,11 @@
 # Rycord Vencord Theme
 *An ultra-lightweight, high-performance purple and black theme designed to keep your memory footprint low (~256MB–512MB RAM) while delivering a sleek, modern aesthetic.*
-
+# --------------------------
 ## Installation Guide
 *1. Vencord (Desktop / Web Extension)*
 *Vencord is the recommended client mod for this theme due to its exceptional performance and built-in CSS loader.*
 
-*Desktop App:*
+# Desktop App:
 
 *Download and install Vencord for your operating system.*
 
@@ -18,19 +18,19 @@
 *Save the Rycord.theme.css file directly into this folder.*
 
 *Return to Discord, toggle Rycord on, and enjoy!*
+# --------------------------
+# Web Extension (Browser):
 
-*Web Extension (Browser):*
+*Install the Vencord browser extension from the Chrome Web Store or Firefox Add-ons.*
 
-Install the Vencord browser extension from the Chrome Web Store or Firefox Add-ons.
+*Open Discord Web in your browser.*
 
-Open Discord Web in your browser.
+*Click the Vencord extension icon or navigate to Discord User Settings -> Vencord -> Themes.*
 
-Click the Vencord extension icon or navigate to Discord User Settings -> Vencord -> Themes.
-
-Paste or upload the Rycord.theme.css content into the custom CSS injector tab.
-
-2. BetterDiscord
-If you are using the classic BetterDiscord injector instead of Vencord:
+*Paste or upload the Rycord.theme.css content into the custom CSS injector tab.*
+# --------------------------
+# 2. BetterDiscord
+*If you are using the classic BetterDiscord injector instead of Vencord:*
 
 Download and install BetterDiscord.
 
