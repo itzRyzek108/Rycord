@@ -1,107 +1,91 @@
 /**
 * @name Rycord
 * @author itzRyzek
-* @version 1.0
-* @description Ultra lightweight purple & black theme for Discord Web, powered by Vencord.
-* @invite pM2uZheDud
+* @version 1.0.0
+* @description Ultra lightweight purple & black theme for Discord Web and Desktop.
+* @source https://github.com/itzRyzek108/Rycord
 */
 
-/* --- CORE VARIABLES (Purple & Black Palette) --- */
 :root {
-  --font-primary: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  --font-display: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  --background-primary: #0b0b0e !important;
+  --background-secondary: #121218 !important;
+  --background-secondary-alt: #181820 !important;
+  --background-tertiary: #070709 !important;
+  --background-floating: #121218 !important;
+  --background-modifier-hover: rgba(138, 43, 226, 0.08) !important;
+  --background-modifier-active: rgba(138, 43, 226, 0.15) !important;
+  --background-modifier-selected: rgba(138, 43, 226, 0.2) !important;
   
-  /* Primary Accents */
-  --purple-primary: #8a2be2;
-  --purple-glow: rgba(138, 43, 226, 0.4);
-  --black-base: #0b0b0e;
-  --black-surface: #121218;
-  --black-alt: #181820;
-
-  /* Discord Override Variables for Ultra-Lite Memory Footprint */
-  --background-primary: var(--black-base);
-  --background-secondary: var(--black-surface);
-  --background-secondary-alt: var(--black-alt);
-  --background-tertiary: #070709;
-  --background-floating: var(--black-surface);
-  --background-modifier-hover: rgba(138, 43, 226, 0.08);
-  --background-modifier-active: rgba(138, 43, 226, 0.15);
-  --background-modifier-selected: rgba(138, 43, 226, 0.2);
+  --channels-default: #8e8ea6 !important;
+  --interactive-normal: #a6a6c1 !important;
+  --interactive-hover: #ffffff !important;
+  --interactive-active: #ffffff !important;
+  --interactive-muted: #4e4e6a !important;
   
-  --channels-default: #8e8ea6;
-  --interactive-normal: #a6a6c1;
-  --interactive-hover: #ffffff;
-  --interactive-active: #ffffff;
-  --interactive-muted: #4e4e6a;
+  --header-primary: #ffffff !important;
+  --header-secondary: #b9b9c9 !important;
+  --text-normal: #dcdce6 !important;
+  --text-muted: #8e8ea6 !important;
+  --text-link: #b19cd9 !important;
   
-  --header-primary: #ffffff;
-  --header-secondary: #b9b9c9;
-  --text-normal: #dcdce6;
-  --text-muted: #8e8ea6;
-  --text-link: #b19cd9;
-  
-  --brand-experiment: var(--purple-primary);
-  --brand-experiment-hover: #9c4deb;
-  --brand-experiment-active: #781cd6;
-  --channeltextarea-background: #16161f;
-  --scrollbar-auto-thumb: var(--purple-primary);
-  --scrollbar-thin-thumb: var(--purple-primary);
+  --brand-experiment: #8a2be2 !important;
+  --brand-experiment-hover: #9c4deb !important;
+  --brand-experiment-active: #781cd6 !important;
+  --channeltextarea-background: #16161f !important;
+  --scrollbar-auto-thumb: #8a2be2 !important;
+  --scrollbar-thin-thumb: #8a2be2 !important;
 }
 
-/* --- PERFORMANCE OPTIMIZATIONS (Keeping RAM 256MB - 512MB) --- *
- * Disables heavy CSS filters, complex backdrop-blurs, and shadow loops *
- * that cause high GPU/CPU overhead in Chromium browsers.             */
+/* --- EXPLICIT DOM OVERRIDES (Forces UI Change) --- */
+body, 
+#app-mount, 
+.appAsidePanelWrapper_a3d385, 
+.app_a0171e, 
+.bg_d4b611 {
+  background-color: #0b0b0e !important;
+}
+
+/* Chat Area & Sidebar Panels */
+.chat_a7d72e, 
+.sidebar_c48ade, 
+.container_c48ade, 
+.privateChannels_c48ade, 
+.panels_c48ade,
+.container_ee69ce {
+  background-color: #0b0b0e !important;
+}
+
+/* Member List & User Area */
+.members_c8ef7c, 
+.member_c8ef7c {
+  background-color: #121218 !important;
+}
+
+/* Chat Input Box */
+.channelTextArea_a7d72e {
+  background-color: #16161f !important;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.scrollableContainer_bdf0ab {
+  background-color: transparent !important;
+}
+
+/* --- PERFORMANCE OPTIMIZATIONS (RAM Saver) --- */
 *, *:before, *:after {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  text-rendering: optimizeSpeed;
 }
 
-/* --- LIGHTWEIGHT ANIMATIONS --- */
-@keyframes rycordFadeIn {
-  from { opacity: 0; transform: translateY(2px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes rycordGlow {
-  0% { border-color: rgba(138, 43, 226, 0.2); }
-  50% { border-color: rgba(138, 43, 226, 0.6); }
-  100% { border-color: rgba(138, 43, 226, 0.2); }
-}
-
-/* Apply subtle performance-friendly animation to chat and app regions */
-.chat_a7d72e, .sidebar_c48ade {
-  animation: rycordFadeIn 0.2s ease-out;
-}
-
-/* --- LAYOUT REFINEMENTS --- */
-/* Custom thin scrollbars for minimal layout recalculations */
+/* Custom Thin Scrollbar */
 ::-webkit-scrollbar {
   width: 4px !important;
   height: 4px !important;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--purple-primary) !important;
+  background: #8a2be2 !important;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-track {
   background: transparent !important;
-}
-
-/* Sleek focus ring on active text inputs */
-input[type="text"]:focus, 
-textarea:focus {
-  border-color: var(--purple-primary) !important;
-  animation: rycordGlow 2s infinite;
-}
-
-/* Custom Watermark / Build Tag to verify theme */
-.container__37e49:after {
-  content: "Rycord v1.0 [Ultra-Lite]";
-  display: block;
-  font-size: 10px;
-  padding: 6px 8px;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(138, 43, 226, 0.15);
-  text-align: center;
 }
