@@ -1,91 +1,121 @@
 /**
-* @name Rycord
-* @author itzRyzek
-* @version 1.0.0
-* @description Ultra lightweight purple & black theme for Discord Web and Desktop.
-* @source https://github.com/itzRyzek108/Rycord
+ * @name Rycord Spider-Verse Edition (Lite & Classic)
+ * @author itzRyzek
+ * @version 5.3.0
+ * @description Lightweight Spider-Verse theme with default profile pictures, standard/default Discord icons, disabled animations/nitro effects, and optimized performance for laggy PCs.
+ * @source https://github.com/itzRyzek108/Rycord
 */
 
+/* --- 1. SPIDER-VERSE LITE & PERFORMANCE VARIABLES --- */
 :root {
-  --background-primary: #0b0b0e !important;
-  --background-secondary: #121218 !important;
-  --background-secondary-alt: #181820 !important;
-  --background-tertiary: #070709 !important;
-  --background-floating: #121218 !important;
-  --background-modifier-hover: rgba(138, 43, 226, 0.08) !important;
-  --background-modifier-active: rgba(138, 43, 226, 0.15) !important;
-  --background-modifier-selected: rgba(138, 43, 226, 0.2) !important;
-  
-  --channels-default: #8e8ea6 !important;
-  --interactive-normal: #a6a6c1 !important;
-  --interactive-hover: #ffffff !important;
-  --interactive-active: #ffffff !important;
-  --interactive-muted: #4e4e6a !important;
-  
-  --header-primary: #ffffff !important;
-  --header-secondary: #b9b9c9 !important;
-  --text-normal: #dcdce6 !important;
-  --text-muted: #8e8ea6 !important;
-  --text-link: #b19cd9 !important;
-  
-  --brand-experiment: #8a2be2 !important;
-  --brand-experiment-hover: #9c4deb !important;
-  --brand-experiment-active: #781cd6 !important;
-  --channeltextarea-background: #16161f !important;
-  --scrollbar-auto-thumb: #8a2be2 !important;
-  --scrollbar-thin-thumb: #8a2be2 !important;
+    --sv-bg-void: #030008;
+    --sv-bg-dark: #090214;
+    --sv-bg-panel: #110524;
+    --sv-bg-surface: #1a0a38;
+    
+    --sv-neon-purple: #b000ff;
+    --sv-neon-pink: #ff007f;
+    --sv-neon-cyan: #00f0ff;
+    
+    /* Discord System Overrides */
+    --background-primary: var(--sv-bg-dark) !important;
+    --background-secondary: var(--sv-bg-panel) !important;
+    --background-secondary-alt: var(--sv-bg-surface) !important;
+    --background-tertiary: var(--sv-bg-void) !important;
+    --background-floating: var(--sv-bg-panel) !important;
+    
+    --brand-experiment: var(--sv-neon-purple) !important;
+    --channeltextarea-background: var(--sv-bg-surface) !important;
 }
 
-/* --- EXPLICIT DOM OVERRIDES (Forces UI Change) --- */
-body, 
-#app-mount, 
-.appAsidePanelWrapper_a3d385, 
-.app_a0171e, 
-.bg_d4b611 {
-  background-color: #0b0b0e !important;
+/* --- 2. DISABLE ALL NON-SENSE ANIMATIONS & GLITCHES FOR PERFORMANCE --- */
+*, 
+*::before, 
+*::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+    filter: none !important;
 }
 
-/* Chat Area & Sidebar Panels */
-.chat_a7d72e, 
-.sidebar_c48ade, 
-.container_c48ade, 
-.privateChannels_c48ade, 
-.panels_c48ade,
-.container_ee69ce {
-  background-color: #0b0b0e !important;
+/* Remove heavy background halftone overlay for performance */
+#app-mount::before {
+    display: none !important;
 }
 
-/* Member List & User Area */
-.members_c8ef7c, 
-.member_c8ef7c {
-  background-color: #121218 !important;
+/* --- 3. FIX PROFILE PICTURES (Standardize size, shapes & prevent similarity bugs) --- */
+img[class*="avatar"], 
+div[class*="avatar"] {
+    border-radius: 50% !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    object-fit: cover !important;
 }
 
-/* Chat Input Box */
+/* Specific fix for large/stretched profile icons in member lists or chats */
+.wrapper_cbde50 foreignObject,
+.avatar_f854fe foreignObject {
+    mask: none !important;
+}
+
+/* --- 4. DEFAULT ICONS RESTORATION (Disable modern incompatible/oversized icons) --- */
+svg, 
+.icon-22AiRD, 
+.icon-1DcUnz, 
+div[class*="icon-"], 
+span[class*="icon-"] {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    overflow: hidden !important;
+    transform: none !important;
+}
+
+/* --- 5. LIGHTWEIGHT STRUCTURAL UI --- */
+html, body, #app-mount {
+    background-color: var(--sv-bg-void) !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+.app_a0171e {
+    background: var(--sv-bg-void) !important;
+}
+
+.sidebar_c48ade {
+    background-color: var(--sv-bg-panel) !important;
+    border-right: 1px solid var(--sv-neon-purple) !important;
+}
+
+.chat_a7d72e {
+    background-color: var(--sv-bg-dark) !important;
+}
+
+.members_c8ef7c {
+    background-color: var(--sv-bg-panel) !important;
+}
+
+/* --- 6. CLEAN PANELS & MINIMAL SCROLLBARS --- */
 .channelTextArea_a7d72e {
-  background-color: #16161f !important;
-  border: 1px solid rgba(138, 43, 226, 0.3);
+    background-color: var(--sv-bg-surface) !important;
+    border: 1px solid var(--sv-neon-purple) !important;
+    border-radius: 8px !important;
 }
 
-.scrollableContainer_bdf0ab {
-  background-color: transparent !important;
+div[class*="menu_"], div[class*="root_"], div[class*="modal_"] {
+    background-color: var(--sv-bg-panel) !important;
+    border: 1px solid var(--sv-neon-pink) !important;
+    border-radius: 8px !important;
 }
 
-/* --- PERFORMANCE OPTIMIZATIONS (RAM Saver) --- */
-*, *:before, *:after {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* Custom Thin Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px !important;
-  height: 4px !important;
+    width: 6px !important;
+    height: 6px !important;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8a2be2 !important;
-  border-radius: 2px;
+    background: var(--sv-neon-purple) !important;
+    border-radius: 3px !important;
 }
 ::-webkit-scrollbar-track {
-  background: transparent !important;
+    background: var(--sv-bg-void) !important;
 }
